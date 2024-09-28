@@ -9,5 +9,4 @@ https://doi.org/10.48550/arXiv.2210.17287
 - SEGAN: Speech Enhancement Generative Adversarial Network.Santiago Pascual, Antonio Bonafonte, Joan Serrà.
 https://doi.org/10.48550/arXiv.1703.09452
   
-- U-Net: Convolutional Networks for Biomedical Image Segmentation.Olaf Ronneberger, Philipp Fischer, Thomas Brox.
-https://doi.org/10.48550/arXiv.1505.04597
+
