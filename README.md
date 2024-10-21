@@ -59,7 +59,7 @@ The autoencoder U-NET, here a sketch of the original model.
 
 **▶ U-NET MODEL FOR DENOISING TASK: MAIN DIFFERENCES**
 
-1.   **Residual block**: instead of simple sequence of convolutional operations with activation functions,the residual block showS the normalization, the residual connection and the time embedding added after the first convolution.
+1.   **Residual block**: instead of simple sequences of convolutional operations with activation functions,the residual block shows the normalization, the residual connection and the time embedding added after the first convolution.
 
 2.   **Attention block**: the block performs an attention and a skip connection in order to capture more information than the standard model.
 
@@ -69,7 +69,7 @@ The autoencoder U-NET, here a sketch of the original model.
 
 The standard convolution operation combines the values of all the input channels.
 
-The total number of parametersP in a standard convolutional layer can be expressed as:
+The total number of parameters in a standard convolutional layer can be expressed as:
 
 **Total Parameters=(Wk ⋅ Hk ⋅ din ⋅ dout) + dout**
 
