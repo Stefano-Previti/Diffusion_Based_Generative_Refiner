@@ -11,6 +11,8 @@ https://doi.org/10.48550/arXiv.1703.09452
 
 - U-NET : Convolutional Networks for Biomedical Image Segmentation.Olaf Ronneberger, Philipp Fischer, Thomas Brox. https://doi.org/10.48550/arXiv.1505.04597
 
+- NISQA MODEL: G. Mittag, B. Naderi, A. Chehadi, and S. Möller “NISQA: A Deep CNN-Self-Attention Model for Multidimensional Speech Quality Prediction with Crowdsourced Datasets,” in Proc. Interspeech 2021, 2021.
+
  ## Overview of the project
   
 First the training of a diffusion-based generative model on clean speech data. After obtaining results from an arbitrary preceding SE module, the variance of the noise included in noisy input at each time-frequency bin is estimated. With the estimate, the proposed refiner generates clean speech on the basis of the DDRM framework, which utilizes the pre-trained diffusion-based model.
