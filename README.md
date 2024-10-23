@@ -134,21 +134,21 @@ After an unstable training we finally reached a smooth behavior in the last 9 ep
 
 ![Screenshot 2024-10-23 010352](https://github.com/user-attachments/assets/7475be4d-f46f-4f94-86de-ddd94f53713e)
 
-For the Diffusion model we trained with timesteps=50 for 100 epochs with  the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
+For the **Diffusion model** we trained with timesteps=50 for 100 epochs with  the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
- - 1. Training with **SILU**
+ -  Training with **SILU**
     ![Screenshot 2024-10-23 003202](https://github.com/user-attachments/assets/a24fe2f9-48bb-47cb-83dc-279277e8c2c2)
 
     Final average test loss of **0.1201**.
 
-- 2. Training with **RELU**
+-  Training with **RELU**
    ![Screenshot 2024-10-23 004406](https://github.com/user-attachments/assets/0a2688b1-4690-4019-ae78-073d4b341570)
 
     Final average test loss of **0.0963**.
 
-- 3. Training with **GELU**
+-  Training with **GELU**
    ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
 
    Final average test loss of **0.1136**.
@@ -168,6 +168,32 @@ We choose the NISQA metrics in order to evaluaate the performance of the algorit
 4.Discontinuity (Dis_pred): Higher values mean more distortion or breaks in the audio.
 
 5.Loudness (Loud_pred): Higher values mean louder speech.
+
+⚓Here the final results for the 3 different experiments:
+
+- Final results with **SILU**
+  ![silu](https://github.com/user-attachments/assets/1876b114-a61a-4c60-85a7-5230b1758b91)
+
+- Final results with **RELU**
+![relu](https://github.com/user-attachments/assets/78d68bc7-2e12-4d82-acd2-78e2d89fa004)
+
+- Final results with **GELU**
+  ![gelu](https://github.com/user-attachments/assets/51298f92-4715-40bc-9b43-f62a0a9f7f74)
+
+**⏰Final considerations on the results**
+
+In all the experminets the low values of coloration and discontinuity indicates small presence of unnatural sound and distorsion. 
+
+For comparison with the paper we mainly focys on the overall speech quality (MOS_pred) in wich the paper has reached (with the SEGAN model and the Diffiner pattern) a result of 4.372. This result is due to the training of the diffusion model for which they trained the model on a single NVIDIA A100 GPU (40 GB memory) for 7.5 × 105 steps, which took about three days. Obviously our results with only 100 epochs and 50 timesteps in the final algorithm (T=200 in the paper) is inevitably lower. 
+
+But the interesting part is that the **RELU experiments** has respected our previsions.In fact ,as we have already said, this was the experiment that showed the better performance during training and the lower final average test loss and ,as a consequence, we reached the better result in terms of MOS_pred scores.
+
+
+
+
+
+
+
 
 
 
