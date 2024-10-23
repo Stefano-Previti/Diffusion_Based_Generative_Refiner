@@ -156,6 +156,7 @@ For the Diffusion model we trained with timesteps=50 for 100 epochs with  the Ad
 In the 3 cases we obtained similar results but with some better performance in the RELU case, in wich all the loss seems to be around 0.1.
 
 **⏰FINAL RESULT OF THE  REFINER AND CONSIDERATION**
+
 We choose the NISQA metrics in order to evaluaate the performance of the algorithm with these metrics
 
 1.**Overall Quality (MOS_pred)**: Higher values mean better overall speech quality (1-5 scale).
