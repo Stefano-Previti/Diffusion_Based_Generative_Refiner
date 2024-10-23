@@ -138,17 +138,17 @@ For the Diffusion model we trained with timesteps=50 for 100 epochs with  the Ad
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
- 1. Training with **SILU**
+ - 1. Training with **SILU**
     ![Screenshot 2024-10-23 003202](https://github.com/user-attachments/assets/a24fe2f9-48bb-47cb-83dc-279277e8c2c2)
 
     Final average test loss of **0.1201**.
 
-2. Training with **RELU**
+- 2. Training with **RELU**
    ![Screenshot 2024-10-23 004406](https://github.com/user-attachments/assets/0a2688b1-4690-4019-ae78-073d4b341570)
 
     Final average test loss of **0.0963**.
 
-3. Training with **GELU**
+- 3. Training with **GELU**
    ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
 
    Final average test loss of **0.1136**.
@@ -159,9 +159,13 @@ In the 3 cases we obtained similar results but with some better performance in t
 We choose the NISQA metrics in order to evaluaate the performance of the algorithm with these metrics
 
 1.**Overall Quality (MOS_pred)**: Higher values mean better overall speech quality (1-5 scale).
+
 2.Noisiness (Noi_pred): Higher values mean more background noise.
+
 3.Coloration (Col_pred): Higher values indicate more tonal changes or unnatural sound.
+
 4.Discontinuity (Dis_pred): Higher values mean more distortion or breaks in the audio.
+
 5.Loudness (Loud_pred): Higher values mean louder speech.
 
 
