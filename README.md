@@ -111,7 +111,7 @@ Parameters(Pointwise)=din⋅dout
   
 2. Single head substituted by **n-heads=2** in the attention block.
 
-3. Prove 3 different activation function: **SilU,ReLU and GeLU**.
+3. Training with 3 different activation functions: **SilU,ReLU and GeLU**.
 
 **▶DDPM**
 
@@ -134,7 +134,7 @@ After an unstable training we finally reached a smooth behavior in the last 9 ep
 
 ![Screenshot 2024-10-23 010352](https://github.com/user-attachments/assets/7475be4d-f46f-4f94-86de-ddd94f53713e)
 
-For the **Diffusion model** we trained with timesteps=50 for 100 epochs with  the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
+For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
@@ -156,11 +156,11 @@ For the **Diffusion model** we trained with timesteps=50 for 100 epochs with  th
 
    Final average test loss of **0.1136**.
    
-In the 3 cases we obtained similar results but with some better performance in the RELU case, in wich all the loss seems to be around 0.1.
+In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich all the loss seems to be around 0.1.
 
 **⏰FINAL RESULT OF THE  REFINER AND CONSIDERATION**
 
-We choose the NISQA metrics in order to evaluaate the performance of the algorithm with these metrics
+We choose the NISQA metrics in order to evaluaate the performance of the algorithm with these metrics:
 
 1.**Overall Quality (MOS_pred)**: Higher values mean better overall speech quality (1-5 scale).
 
