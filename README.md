@@ -81,6 +81,7 @@ Then the Compact U-Net is trained to predict the noise added in order to **rever
 ![Screenshot 2024-09-28 234233](https://github.com/user-attachments/assets/77965cb5-328a-421b-aa27-c0ab9f49c392)
 
 **▶FINAL ALGORITHM FOR THE REFINING TASK**
+
 Here the pseudocode of the final algorithm,for the experiments only the **pattern Diffiner** was considered.
 
 ![Screenshot 2024-08-23 150405](https://github.com/user-attachments/assets/5cb6482e-1b57-4820-bdfb-f1b87ca074a5)
