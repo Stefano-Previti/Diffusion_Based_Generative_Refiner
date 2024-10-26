@@ -116,7 +116,7 @@ For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the
    ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
 
    
-In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich all the loss seems to be around 0.1.
+In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich the loss seems to converge around 0.1.
 
 Here the result of the final average loss during the test:
 
