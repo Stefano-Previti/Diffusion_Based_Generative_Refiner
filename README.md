@@ -13,11 +13,35 @@ https://doi.org/10.48550/arXiv.1703.09452
 
 - NISQA MODEL: G. Mittag, B. Naderi, A. Chehadi, and S. Möller “NISQA: A Deep CNN-Self-Attention Model for Multidimensional Speech Quality Prediction with Crowdsourced Datasets,” in Proc. Interspeech 2021, 2021.
 
- ## Overview of the project
+ ## DESCRIPTION OF THE PROJECT
   
-First the training of a diffusion-based generative model on clean speech data. After obtaining results from an arbitrary preceding SE module, the variance of the noise included in noisy input at each time-frequency bin is estimated. With the estimate, the proposed refiner generates clean speech on the basis of the DDRM framework, which utilizes the pre-trained diffusion-based model.
+✈The implementation propose a slightly variant of the proposed original architecture, in wich there will be a classical LSGAN approach for the loss in the speech enhancement module and some alternatives in the architectural choiches for the diffusion model.
+
+**Overview of the original project**
+
+First the training of a diffusion-based generative model on
+clean speech data. After obtaining results from the SEGAN model, the variance of the noise included in noisy
+input at each time-frequency bin is estimated. With the estimate, the proposed refiner generates clean speech on the basis of
+the DDRM framework, which utilizes the trained diffusion-based model.
 
 ![Screenshot 2024-08-20 004501](https://github.com/user-attachments/assets/417fde5e-24cc-4806-883a-28995ba59391)
+
+**⏰Variant for the loss in the SEGAN model**
+
+The loss will be without the conditioned extra information in order to prove the **classical LSGAN** approach.
+
+Here showed the (general) equation of the loss using the **least-squares GAN**
+(LSGAN) approach obtained with
+the least-squares function.
+
+**⏰Variant for experiments in the DIFFUSION model**
+
+
+1.   Classical 2D standard convolution operations substituted by the **depthwise separable convolution**.
+   
+2. Single head substituted by **n-heads=2** in the attention block.
+
+3. Training with 3 different activation function: **SilU,ReLU and GeLU**.
 
 ⚓ The dataset are for clean and noisy tasks, in both case it corresponds to 28 speakers talking for about 5-6 seconds in different noisy eniviroments (for the noisy case) or in a completely silence room(for the clean case).The test set is instead composed by only 2 speakers.
 
@@ -126,7 +150,7 @@ Here the pseudocode of the final algorithm,for the experiments only the **patter
 
 ![Screenshot 2024-08-23 150405](https://github.com/user-attachments/assets/5cb6482e-1b57-4820-bdfb-f1b87ca074a5)
 
-**▶EXPERIMENTS AND RESULTS**
+**▶RESULTS FOR THE SEGAN MODEL**
 
 For the **SEGAN** model we trained for 65 epochs with the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
 
@@ -134,45 +158,47 @@ After an unstable training we finally reached a smooth behavior in the last 9 ep
 
 ![Screenshot 2024-10-23 010352](https://github.com/user-attachments/assets/7475be4d-f46f-4f94-86de-ddd94f53713e)
 
+**▶RESULTS FOR THE DIFFUSION MODEL**
+
+
 For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
- -  Training with **SILU**
+ -  Training with **SILU** --> Final average test loss of **0.1201**.
    
     ![Screenshot 2024-10-23 003202](https://github.com/user-attachments/assets/a24fe2f9-48bb-47cb-83dc-279277e8c2c2)
 
-    Final average test loss of **0.1201**.
 
--  Training with **RELU**
+-  Training with **RELU** -->Final average test loss of **0.0963**
   
    ![Screenshot 2024-10-23 004406](https://github.com/user-attachments/assets/0a2688b1-4690-4019-ae78-073d4b341570)
 
-    Final average test loss of **0.0963**.
 
--  Training with **GELU**
+-  Training with **GELU** -->Final average test loss of **0.1136**.
 
    ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
 
-   Final average test loss of **0.1136**.
    
 In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich all the loss seems to be around 0.1.
 
-**⏰FINAL RESULT OF THE  REFINER AND CONSIDERATION**
+**▶METRICS**
 
 We choose the NISQA metrics in order to evaluaate the performance of the algorithm with these metrics:
 
-1.**Overall Quality (MOS_pred)**: Higher values mean better overall speech quality (1-5 scale).
+- **Overall Quality (MOS_pred)**: Higher values mean better overall speech quality (1-5 scale).
 
-2.Noisiness (Noi_pred): Higher values mean more background noise.
+- Noisiness (Noi_pred): Higher values mean more background noise.
 
-3.Coloration (Col_pred): Higher values indicate more tonal changes or unnatural sound.
+- Coloration (Col_pred): Higher values indicate more tonal changes or unnatural sound.
 
-4.Discontinuity (Dis_pred): Higher values mean more distortion or breaks in the audio.
+- Discontinuity (Dis_pred): Higher values mean more distortion or breaks in the audio.
 
-5.Loudness (Loud_pred): Higher values mean louder speech.
+- Loudness (Loud_pred): Higher values mean louder speech.
 
-⚓Here the final results for the 3 different experiments:
+
+**▶FINAL RESULTS OF THE REFINER**
+
 
 - Final results with **SILU**
   
@@ -182,18 +208,19 @@ We choose the NISQA metrics in order to evaluaate the performance of the algorit
 
 ![relu](https://github.com/user-attachments/assets/78d68bc7-2e12-4d82-acd2-78e2d89fa004)
 
-- Final results with **GELU**
+ - Final results with **GELU**
 
   ![gelu](https://github.com/user-attachments/assets/51298f92-4715-40bc-9b43-f62a0a9f7f74)
 
   
-**⏰Final considerations on the results**
+**▶FINAL CONSIDERATIONS ON THE RESULTS**
 
 In all the experminets the low values of coloration and discontinuity indicates small presence of unnatural sound and distorsion. 
 
 For comparison with the paper we mainly focys on the overall speech quality (MOS_pred) in wich the paper has reached (with the SEGAN model and the Diffiner pattern) a result of 4.372. This result is due to the training of the diffusion model for which they trained the model on a single NVIDIA A100 GPU (40 GB memory) for 7.5 × 105 steps, which took about three days. Obviously our results with only 100 epochs and 50 timesteps in the final algorithm (T=200 in the paper) is inevitably lower. 
 
 But the interesting part is that the **RELU experiments** has respected our previsions.In fact ,as we have already said, this was the experiment that showed the better performance during training and the lower final average test loss and ,as a consequence, we reached the better result in terms of MOS_pred scores.
+
 
 
 
