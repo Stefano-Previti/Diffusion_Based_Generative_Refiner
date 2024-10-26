@@ -38,7 +38,7 @@ The loss will be without the conditioned extra information in order to prove the
 
 **⏰Variant for experiments in the DIFFUSION model**
 
-1.   Classical 2D standard convolution operations substituted by the **depthwise separable convolution**.
+1.   Classical standard convolution operations substituted by the **depthwise separable convolution**.
    
 2. Single head substituted by **n-heads=2** in the attention block.
 
