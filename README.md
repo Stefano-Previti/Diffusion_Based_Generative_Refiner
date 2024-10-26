@@ -17,6 +17,12 @@ https://doi.org/10.48550/arXiv.1703.09452
   
 ✈The implementation propose a slightly variant of the proposed original architecture, in wich there will be a classical LSGAN approach for the loss in the speech enhancement module and some alternatives in the architectural choiches for the diffusion model.
 
+**Dataset**
+
+The dataset are for clean and noisy tasks, in both case it corresponds to 28 speakers talking for about 5-6 seconds in different noisy eniviroments (for the noisy case) or in a completely silence room(for the clean case).The test set is instead composed by only 2 speakers.
+
+The choiche here is to extract 1/4 of the dataset for the limitation of the RAM in colab enviroment,then preprocess every audio dividing them in segment of 16384 samples with a resampling at 16 kHz for a total of 2892 segment for the training and 206 for the test. For the diffusion model there is another step of the preprocessing consisting in STFT tranformation that has as result a 2 channel tensor (one for the real part and the other one for the imaginary part) with the size [2,256,256].
+
 **Overview of the original project**
 
 First the training of a diffusion-based generative model on
@@ -25,12 +31,6 @@ input at each time-frequency bin is estimated. With the estimate, the proposed r
 the DDRM framework, which utilizes the trained diffusion-based model.
 
 ![Screenshot 2024-08-20 004501](https://github.com/user-attachments/assets/417fde5e-24cc-4806-883a-28995ba59391)
-
-⚓**Dataset**
-
-The dataset are for clean and noisy tasks, in both case it corresponds to 28 speakers talking for about 5-6 seconds in different noisy eniviroments (for the noisy case) or in a completely silence room(for the clean case).The test set is instead composed by only 2 speakers.
-
-The choiche here is to extract 1/4 of the dataset for the limitation of the RAM in colab enviroment,then preprocess every audio dividing them in segment of 16384 samples with a resampling at 16 kHz for a total of 2892 segment for the training and 206 for the test. For the diffusion model there is another step of the preprocessing consisting in STFT tranformation that has as result a 2 channel tensor (one for the real part and the other one for the imaginary part) with the size [2,256,256].
 
 **⏰Variant for the loss in the SEGAN model**
 
