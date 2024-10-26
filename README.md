@@ -120,11 +120,11 @@ In the 3 cases we obtained similar results but with some better performances in 
 
 Here the result of the final average loss during the test:
 
-- SILU : 0.1201
+A) SILU : 0.1201
   
-- RELU : 0.0963
+B) RELU : 0.0963
 
-- GELU : 0.1136
+C) GELU : 0.1136
 
 **▶METRICS**
 
