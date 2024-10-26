@@ -46,26 +46,8 @@ The choiche here is to extract 1/4 of the dataset for the limitation of the RAM 
 ## SE Module: SEGAN
 
 The **SEGAN** (Speech Enhancement Generative Adversarial Network) architecture is model designed for speech enhancement tasks, particularly to reduce noise in audio signals. It uses a generative adversarial network (GAN) framework, where a generator network aims to produce clean, enhanced speech from noisy input, and a discriminator network attempts to distinguish between the enhanced speech and the original clean speech. Through this **adversarial training**, the SEGAN model effectively learns to improve the quality of noisy speech, making it sound more natural and intelligible.
+
 ![Screenshot 2024-08-22 134544](https://github.com/user-attachments/assets/fc9235ed-b440-4f97-b026-d60e60cdfcca)
-
-**▶SCALING OF THE ARCHITECTURE**
-
-Here there is a **scaled** model in order to achieve a better performance in terms of time-consuming during training.
-
-The model goes up to a maximum of 256 channels instead of the 1024 reached by the paper.
-
-**⏰VARIANT FOR THE LOSS**
-
-The loss will be without the conditioned extra information in order to prove the **classical LSGAN** approach.
-
-Here showed the (general) equation of the loss using the **least-squares GAN** (LSGAN) approach obtained withthe least-squares function.
-
-![Screenshot 2024-10-15 224526](https://github.com/user-attachments/assets/a9d86b2c-09eb-4bbf-b2ff-f0a2b0c4e84e)
-
-In this  specific case the generic parameters (a,b,c) are substituted with binary coding(1 for real, 0 for
-fake).
-
-Moreover there is an **L1 regularization** added in the **generator loss** as suggested by the paper
 
 **Adaptation for the speech enhancement task**
 
@@ -88,50 +70,6 @@ The autoencoder U-NET, here a sketch of the original model.
 1.   **Residual block**: instead of simple sequences of convolutional operations with activation functions,the residual block shows the normalization, the residual connection and the time embedding added after the first convolution.
 
 2.   **Attention block**: the block performs an attention and a skip connection in order to capture more information than the standard model.
-
-**⏰VARIANT FOR THE 2D CONVOLUTIONAL OPERATIONS**
-
-![Screenshot 2024-09-28 131049](https://github.com/user-attachments/assets/ca189c97-a92b-4614-9862-a93e54195bc6)
-
-The standard convolution operation combines the values of all the input channels.
-
-The total number of parameters in a standard convolutional layer can be expressed as:
-
-**Total Parameters=(Wk ⋅ Hk ⋅ din ⋅ dout) + dout**
-
-**Depthwise Separable Convolutions**
-
-The depthwise separable convolution approach is a different, more efficient operation.
-
-It is a two-step operation: first, a depthwise convolution, followed by a 1 x 1 pointwise convolution.
-
-![Screenshot 2024-09-28 131056](https://github.com/user-attachments/assets/a745590f-3efc-47ba-a819-67e7fd783e7f)
-
-The depthwise convolution does not combine the input channels. It convolves on each channel separately so **each channel** gets its own set of weights.
-
-![Screenshot 2024-09-28 131102](https://github.com/user-attachments/assets/3b84f1c4-6f81-4275-b5ee-71109741ab6c)
-
-The pointwise convolution is essentially the same as a standard convolution, except using a 1 x 1 kernel. This operation just adds up the channels from the depthwise convolution as a weighted sum.
-
-**Parameters Calculation**
-
-1)For ***depthwise convolution***, the number of parameters is calculated as follows:
-
-Parameters(Depthwise)=Wk⋅Hk⋅din
-
-2)For  ***pointwise convolution***, which combines the outputs from the depthwise convolution:
-
-Parameters(Pointwise)=din⋅dout
-
-**Total Parameters=(Wk ⋅ Hk ⋅ din)+ (din ⋅ dout)**
-
-**⏰FINAL MODEL VARIANTS FOR EXPERIMENTS**
-
-1.   Classical 2D standard convolution operations substituted by the **depthwise separable convolution**.
-  
-2. Single head substituted by **n-heads=2** in the attention block.
-
-3. Training with 3 different activation functions: **SilU,ReLU and GeLU**.
 
 **▶DDPM**
 
