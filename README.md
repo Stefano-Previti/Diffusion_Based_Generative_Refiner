@@ -30,10 +30,6 @@ the DDRM framework, which utilizes the trained diffusion-based model.
 
 The loss will be without the conditioned extra information in order to prove the **classical LSGAN** approach.
 
-Here showed the (general) equation of the loss using the **least-squares GAN**
-(LSGAN) approach obtained with
-the least-squares function.
-
 **⏰Variant for experiments in the DIFFUSION model**
 
 
