@@ -21,8 +21,8 @@ https://doi.org/10.48550/arXiv.1703.09452
 
 First the training of a diffusion-based generative model on
 clean speech data. After obtaining results from the SEGAN model, the variance of the noise included in noisy
-input at each time-frequency bin is estimated. With the estimate, the proposed refiner generates clean speech on the basis of
-the DDRM framework, which utilizes the trained diffusion-based model.
+input at each time-frequency bin is estimated. With the estimate, the proposed refiner generates clean speech on the basis of
+the DDRM framework, which utilizes the trained diffusion-based model.
 
 ![Screenshot 2024-08-20 004501](https://github.com/user-attachments/assets/417fde5e-24cc-4806-883a-28995ba59391)
 
