@@ -26,24 +26,23 @@ the DDRM framework, which utilizes the trained diffusion-based model.
 
 ![Screenshot 2024-08-20 004501](https://github.com/user-attachments/assets/417fde5e-24cc-4806-883a-28995ba59391)
 
+⚓**Dataset**
+
+The dataset are for clean and noisy tasks, in both case it corresponds to 28 speakers talking for about 5-6 seconds in different noisy eniviroments (for the noisy case) or in a completely silence room(for the clean case).The test set is instead composed by only 2 speakers.
+
+The choiche here is to extract 1/4 of the dataset for the limitation of the RAM in colab enviroment,then preprocess every audio dividing them in segment of 16384 samples with a resampling at 16 kHz for a total of 2892 segment for the training and 206 for the test. For the diffusion model there is another step of the preprocessing consisting in STFT tranformation that has as result a 2 channel tensor (one for the real part and the other one for the imaginary part) with the size [2,256,256].
+
 **⏰Variant for the loss in the SEGAN model**
 
 The loss will be without the conditioned extra information in order to prove the **classical LSGAN** approach.
 
 **⏰Variant for experiments in the DIFFUSION model**
 
-
 1.   Classical 2D standard convolution operations substituted by the **depthwise separable convolution**.
    
 2. Single head substituted by **n-heads=2** in the attention block.
 
 3. Training with 3 different activation function: **SilU,ReLU and GeLU**.
-
-⚓**Dataset**
-
-The dataset are for clean and noisy tasks, in both case it corresponds to 28 speakers talking for about 5-6 seconds in different noisy eniviroments (for the noisy case) or in a completely silence room(for the clean case).The test set is instead composed by only 2 speakers.
-
-The choiche here is to extract 1/4 of the dataset for the limitation of the RAM in colab enviroment,then preprocess every audio dividing them in segment of 16384 samples with a resampling at 16 kHz for a total of 2892 segment for the training and 206 for the test. For the diffusion model there is another step of the preprocessing consisting in STFT tranformation that has as result a 2 channel tensor (one for the real part and the other one for the imaginary part) with the size [2,256,256].
 
 ## SE Module: SEGAN
 
