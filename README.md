@@ -101,22 +101,30 @@ For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
- -  Training with **SILU** --> Final average test loss of **0.1201**.
+ -  Training with **SILU** 
    
     ![Screenshot 2024-10-23 003202](https://github.com/user-attachments/assets/a24fe2f9-48bb-47cb-83dc-279277e8c2c2)
 
 
--  Training with **RELU** -->Final average test loss of **0.0963**
+-  Training with **RELU** 
   
    ![Screenshot 2024-10-23 004406](https://github.com/user-attachments/assets/0a2688b1-4690-4019-ae78-073d4b341570)
 
 
--  Training with **GELU** -->Final average test loss of **0.1136**.
+-  Training with **GELU** 
 
    ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
 
    
 In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich all the loss seems to be around 0.1.
+
+Here the result of the final average loss during the test:
+
+- SILU : 0.1201
+  
+- RELU : 0.0963
+
+- GELU : 0.1136
 
 **▶METRICS**
 
