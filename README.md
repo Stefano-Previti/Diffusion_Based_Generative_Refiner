@@ -86,11 +86,11 @@ Here the pseudocode of the final algorithm,for the experiments only the **patter
 
 ![Screenshot 2024-08-23 150405](https://github.com/user-attachments/assets/5cb6482e-1b57-4820-bdfb-f1b87ca074a5)
 
-**▶RESULTS FOR THE SEGAN MODEL**
+**▶RESULTS FOR THE SEGAN GENERATOR**
 
 For the **SEGAN** model we trained for 65 epochs with the Adam optimizer,a learning rate of 0.001 and a "Reduce on Plateau" scheduler.
 
-After an unstable training we finally reached a smooth behavior in the last 9 epochs and a finally average loss on the test set of 0.0535.
+During the evaluation,after some instability we finally reached a smooth behavior in the last 9 epochs and a finally average loss on the test set of 0.0535.
 
 ![Screenshot 2024-10-23 010352](https://github.com/user-attachments/assets/7475be4d-f46f-4f94-86de-ddd94f53713e)
 
@@ -101,17 +101,17 @@ For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
- -  Training with **SILU** 
+ -  Evaluation phase with **SILU** 
    
     ![Screenshot 2024-10-23 003202](https://github.com/user-attachments/assets/a24fe2f9-48bb-47cb-83dc-279277e8c2c2)
 
 
--  Training with **RELU** 
+-  Evaluation phase with **RELU** 
   
    ![Screenshot 2024-10-23 004406](https://github.com/user-attachments/assets/0a2688b1-4690-4019-ae78-073d4b341570)
 
 
--  Training with **GELU** 
+-  Evaluation phase with **GELU** 
 
    ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
 
@@ -163,7 +163,7 @@ In all the experminets the low values of coloration and discontinuity indicates 
 
 For comparison with the paper we mainly focus on the overall speech quality (MOS_pred) in wich the paper has reached (with the SEGAN model and the Diffiner pattern) a result of 4.372. This result is due to the training of the diffusion model for which they trained the model on a single NVIDIA A100 GPU (40 GB memory) for 7.5 × 10^5 steps, which took about three days. Obviously our results with only 100 epochs and 50 timesteps in the final algorithm (T=200 in the paper) is inevitably lower. 
 
-But the interesting part is that the **RELU experiments** has respected our previsions.In fact ,as we have already said, this was the experiment that showed the better performance during training and the lower final average test loss and ,as a consequence, we reached the better result in terms of MOS_pred scores.
+But the interesting part is that the **RELU experiments** has respected our previsions.In fact ,as we have already said, this was the experiment that showed the better performance during the evaluation and the lower final average test loss and ,as a consequence, we reached the better result in terms of MOS_pred scores.
 
 
 
