@@ -101,19 +101,20 @@ For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the
 
  We trained 3 times in order to experiment with 3 different activation functions : SILU, RELU and GELU
 
- -  Validation loss with **SILU** 
+ -  Loss with **SILU**
    
-    ![Screenshot 2024-10-23 003202](https://github.com/user-attachments/assets/a24fe2f9-48bb-47cb-83dc-279277e8c2c2)
+   ![Screenshot 2024-11-07 115052](https://github.com/user-attachments/assets/3421f451-4ce7-436d-aaf4-f90d18fe8030)
 
 
--  Validation loss with **RELU** 
+-  Loss with **RELU** 
   
-   ![Screenshot 2024-10-23 004406](https://github.com/user-attachments/assets/0a2688b1-4690-4019-ae78-073d4b341570)
+   ![Screenshot 2024-11-07 120616](https://github.com/user-attachments/assets/5d70dbd5-a3a4-47f1-81da-13247f1f055c)
 
 
--   Validation loss with **GELU** 
 
-   ![Screenshot 2024-10-23 004934](https://github.com/user-attachments/assets/ef6498c7-44d9-4323-8016-52b25b6512ef)
+-   Loss with **GELU** 
+
+  ![Screenshot 2024-11-07 114735](https://github.com/user-attachments/assets/5c148c0d-dbf5-401c-97da-0594d91e9d58)
 
    
 In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich the loss seems to converge around 0.1.
@@ -163,7 +164,7 @@ In all the experminets the low values of coloration and discontinuity indicates 
 
 For comparison with the paper we mainly focus on the overall speech quality (MOS_pred) in wich the paper has reached (with the SEGAN model and the Diffiner pattern) a result of 4.372. This result is due to the training of the diffusion model for which they trained the model on a single NVIDIA A100 GPU (40 GB memory) for 7.5 × 10^5 steps, which took about three days. Obviously our results with only 100 epochs and 50 timesteps in the final algorithm (T=200 in the paper) is inevitably lower. 
 
-But the interesting part is that the **RELU experiments** has respected our previsions.In fact ,as we have already said, this was the experiment that showed the better performance during the validation and the lower final average test loss and ,as a consequence, we reached the better result in terms of MOS_pred scores.
+But the interesting part is that the **RELU experiments** has respected our previsions.In fact ,as we have already said, this was the experiment that showed the better performance during the training/validation and the lower final average test loss and ,as a consequence, we reached the better result in terms of MOS_pred scores.
 
 
 
