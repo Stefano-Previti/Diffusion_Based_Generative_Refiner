@@ -147,10 +147,12 @@ We choose the NISQA metrics in order to evaluaate the performance of the algorit
 - Final results with **SILU**
   
   ![silu](https://github.com/user-attachments/assets/1876b114-a61a-4c60-85a7-5230b1758b91)
+  
 
 - Final results with **RELU**
 
   ![relu](https://github.com/user-attachments/assets/78d68bc7-2e12-4d82-acd2-78e2d89fa004)
+  
 
 - Final results with **GELU**
 
