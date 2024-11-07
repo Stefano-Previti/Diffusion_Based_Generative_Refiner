@@ -151,7 +151,7 @@ We choose the NISQA metrics in order to evaluaate the performance of the algorit
 
 - Final results with **RELU**
 
-![relu](https://github.com/user-attachments/assets/78d68bc7-2e12-4d82-acd2-78e2d89fa004)
+  ![relu](https://github.com/user-attachments/assets/78d68bc7-2e12-4d82-acd2-78e2d89fa004)
 
  - Final results with **GELU**
 
