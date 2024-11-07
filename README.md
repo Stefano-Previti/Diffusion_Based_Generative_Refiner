@@ -103,17 +103,17 @@ For the **Diffusion model** we trained with timesteps=50 for 100 epochs with the
 
  -  Loss with **SILU**
    
-   ![Screenshot 2024-11-07 115052](https://github.com/user-attachments/assets/3421f451-4ce7-436d-aaf4-f90d18fe8030)
+    ![Screenshot 2024-11-07 115052](https://github.com/user-attachments/assets/3421f451-4ce7-436d-aaf4-f90d18fe8030)
 
 
--  Loss with **RELU** 
+-   Loss with **RELU** 
   
-   ![Screenshot 2024-11-07 120616](https://github.com/user-attachments/assets/5d70dbd5-a3a4-47f1-81da-13247f1f055c)
+    ![Screenshot 2024-11-07 120616](https://github.com/user-attachments/assets/5d70dbd5-a3a4-47f1-81da-13247f1f055c)
 
 
 -   Loss with **GELU** 
 
-   ![Screenshot 2024-11-07 114735](https://github.com/user-attachments/assets/5c148c0d-dbf5-401c-97da-0594d91e9d58)
+    ![Screenshot 2024-11-07 114735](https://github.com/user-attachments/assets/5c148c0d-dbf5-401c-97da-0594d91e9d58)
 
    
 In the 3 cases we obtained similar results but with some better performances in the RELU case, in wich the loss seems to converge around 0.1.
@@ -152,7 +152,7 @@ We choose the NISQA metrics in order to evaluaate the performance of the algorit
 
   ![relu](https://github.com/user-attachments/assets/78d68bc7-2e12-4d82-acd2-78e2d89fa004)
 
- - Final results with **GELU**
+- Final results with **GELU**
 
   ![gelu](https://github.com/user-attachments/assets/51298f92-4715-40bc-9b43-f62a0a9f7f74)
 
